@@ -16,22 +16,39 @@ Our main goal is to develop a customer segmentation model based on the credit ca
 The dataset contains transactional and behavioral data for 8950 distinct credit card customers over the last six months. It comprises 18 features describing various aspects of their credit card usage, including:
 
 `CUST_ID`: Unique identification of a customer
+
 `BALANCE`: Balance amount left in their account
+
 `BALANCE_FREQUENCY`: How frequently the balance is updated
+
 `PURCHASES`: Amount of purchases made
+
 `ONEOFF_PURCHASES`: Maximum purchase amount done in one-off transaction
+
 `INSTALLMENTS_PURCHASES`: Amount of purchase done in installment
+
 `CASH_ADVANCE`: Cash in advance given by the bank
+
 `PURCHASES_FREQUENCY`: How frequently the purchases are being made
+
 `ONEOFF_PURCHASES_FREQUENCY`: How frequently one-off purchases are being made
+
 `PURCHASES_INSTALLMENTS_FREQUENCY`: How frequently purchases in installments are being made
+
 `CASH_ADVANCE_FREQUENCY`: How frequently cash in advance is being paid
+
 `CASH_ADVANCE_TRX`: Number of cash advance transactions
+
 `PURCHASES_TRX`: Number of purchase transactions
+
 `CREDIT_LIMIT`: Credit limit of the customer
+
 `PAYMENTS`: Amount of payments made
+
 `MINIMUM_PAYMENTS`: Minimum amount of payments made by customer
+
 `PRC_FULL_PAYMENT`: Percentage of full payment paid
+
 `TENURE`: Tenure of credit card service
 
 # Methodology & Steps
