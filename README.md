@@ -66,6 +66,7 @@ df.drop(columns='CUST_ID', inplace=True)
 ### 4. Feature Selection for Clustering:
 
 * Based on the variance analysis, the 5 features with the highest variance were selected for the clustering model. These features were identified as most influential in differentiating customer behavior: PURCHASES, CASH_ADVANCE, PAYMENTS, BALANCE, CREDIT_LIMIT.
+
 ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/high%20variance.png)
 
 ### 5. Data Scaling:
@@ -80,6 +81,7 @@ being the selected features
 ### 6. K-Means Clustering Model Building:
 
 * Determining Optimal Number of Clusters (`k=3`): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
+
 ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/elbow.png)
 
 ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/silhouette%20.png)
@@ -101,11 +103,14 @@ final_model.fit(X)
 X_summary = X.groupby(final_model.named_steps['kmeans'].labels_).mean().astype(int)
 ```
 * Visualizing Cluster Profiles: Created a side-by-side bar chart to visually compare the mean values of key financial metrics across different clusters, enabling clear interpretation of each segment.
+  
 ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/clusters.png)
+
 * PCA for Visualization (Optional but Implemented):
     * Applied Principal Component Analysis (PCA) to reduce the dimensionality of the data to 2 components (PC1, PC2) for 2D visualization.
     * Created a scatter plot of PC1 vs PC2, colored by cluster labels, to visualize the separation of the identified customer segments in a lower-dimensional space.
- ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/PCA.png)
+      
+![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/PCA.png)
       
 ## Outcomes & Business Impact
 This project successfully developed a customer segmentation model, clearly answering:
