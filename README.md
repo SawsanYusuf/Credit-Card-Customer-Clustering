@@ -60,13 +60,15 @@ df.drop(columns='CUST_ID', inplace=True)
 
 * Descriptive Statistics: Generated descriptive statistics for numerical features (df.describe()).
 * Variance Analysis: Calculated and visualized the 10 features with the highest variance to identify potentially important variables for clustering.
-* Standard Variance:
-Trimmed Variance (excluding outliers): A trim_variance function was applied to calculate variance after removing the top/bottom 0.1% outliers, which helps in focusing on the core distribution.
+   * Standard Variance
+   * Trimmed Variance (excluding outliers): A trim_variance function was applied to calculate variance after removing the top/bottom 0.1% outliers, which helps in focusing on the core distribution.
 * Outlier Visualization: Created a box plot for CREDIT_LIMIT to visualize its distribution and potential outliers.
-Feature Selection for Clustering:
 
-Based on the variance analysis, the 5 features with the highest variance were selected for the clustering model. These features were identified as most influential in differentiating customer behavior: PURCHASES, CASH_ADVANCE, PAYMENTS, BALANCE, CREDIT_LIMIT.
-* Data Scaling:
+### 4. Feature Selection for Clustering:
+
+* Based on the variance analysis, the 5 features with the highest variance were selected for the clustering model. These features were identified as most influential in differentiating customer behavior: PURCHASES, CASH_ADVANCE, PAYMENTS, BALANCE, CREDIT_LIMIT.
+
+### 5. Data Scaling:
 
 Utilized StandardScaler to scale the selected features. This is crucial for K-Means clustering, as it's sensitive to feature magnitudes, ensuring all features contribute equally to the distance calculations.
 ```
@@ -76,7 +78,7 @@ X_scaled = ss.fit_transform(X) # X
 being the selected features
 ```
 
-### 4. K-Means Clustering Model Building:
+## K-Means Clustering Model Building:
 
 * Determining Optimal Number of Clusters (k=3): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
 (Keep Elbow and Silhouette plots here if available, as they demonstrate thorough analysis even if the final K was fixed by business context.)
