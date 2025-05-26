@@ -101,11 +101,11 @@ final_model.fit(X)
 X_summary = X.groupby(final_model.named_steps['kmeans'].labels_).mean().astype(int)
 ```
 * Visualizing Cluster Profiles: Created a side-by-side bar chart to visually compare the mean values of key financial metrics across different clusters, enabling clear interpretation of each segment.
-![]()
+![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/clusters.png)
 * PCA for Visualization (Optional but Implemented):
     * Applied Principal Component Analysis (PCA) to reduce the dimensionality of the data to 2 components (PC1, PC2) for 2D visualization.
     * Created a scatter plot of PC1 vs PC2, colored by cluster labels, to visualize the separation of the identified customer segments in a lower-dimensional space.
- ![]()
+ ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/PCA.png)
       
 ## Outcomes & Business Impact
 This project successfully developed a customer segmentation model, clearly answering:
