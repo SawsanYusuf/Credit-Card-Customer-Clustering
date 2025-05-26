@@ -66,6 +66,7 @@ df.drop(columns='CUST_ID', inplace=True)
 ### 4. Feature Selection for Clustering:
 
 * Based on the variance analysis, the 5 features with the highest variance were selected for the clustering model. These features were identified as most influential in differentiating customer behavior: PURCHASES, CASH_ADVANCE, PAYMENTS, BALANCE, CREDIT_LIMIT.
+![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/high%20variance.png)
 
 ### 5. Data Scaling:
 * Utilized StandardScaler to scale the selected features. This is crucial for K-Means clustering, as it's sensitive to feature magnitudes, ensuring all features contribute equally to the distance calculations.
@@ -79,6 +80,8 @@ being the selected features
 ### 6. K-Means Clustering Model Building:
 
 * Determining Optimal Number of Clusters (`k=3`): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
+![]()
+![]()
 (Keep Elbow and Silhouette plots here if available, as they demonstrate thorough analysis even if the final K was fixed by business context.)
 * Final Model Training: A K-Means model was trained with n_clusters=3.
 
