@@ -1,6 +1,5 @@
 # Credit Card Customer Clustering
 ![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/stephen-phillips-hostreviews-co-uk-em37kS8WJJQ-unsplash.jpg)
-___
 
 This project focuses on performing customer segmentation using unsupervised machine learning techniques on credit card usage data. The primary goal is to identify distinct segments of active credit card holders, understand their unique characteristics, and provide actionable insights for businesses to develop more targeted and effective marketing strategies.
 
@@ -69,8 +68,7 @@ df.drop(columns='CUST_ID', inplace=True)
 * Based on the variance analysis, the 5 features with the highest variance were selected for the clustering model. These features were identified as most influential in differentiating customer behavior: PURCHASES, CASH_ADVANCE, PAYMENTS, BALANCE, CREDIT_LIMIT.
 
 ### 5. Data Scaling:
-
-Utilized StandardScaler to scale the selected features. This is crucial for K-Means clustering, as it's sensitive to feature magnitudes, ensuring all features contribute equally to the distance calculations.
+* Utilized StandardScaler to scale the selected features. This is crucial for K-Means clustering, as it's sensitive to feature magnitudes, ensuring all features contribute equally to the distance calculations.
 ```
 from sklearn.preprocessing import StandardScaler
 ss = StandardScaler()
@@ -78,11 +76,11 @@ X_scaled = ss.fit_transform(X) # X
 being the selected features
 ```
 
-## K-Means Clustering Model Building:
+### 6. K-Means Clustering Model Building:
 
-* Determining Optimal Number of Clusters (k=3): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
+* Determining Optimal Number of Clusters (`k=3`): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
 (Keep Elbow and Silhouette plots here if available, as they demonstrate thorough analysis even if the final K was fixed by business context.)
-Final Model Training: A K-Means model was trained with n_clusters=3.
+* Final Model Training: A K-Means model was trained with n_clusters=3.
 
 ```
 from sklearn.pipeline import make_pipeline
@@ -91,7 +89,7 @@ from sklearn.cluster import KMeans
 final_model = make_pipeline(StandardScaler(), KMeans(n_clusters=3, random_state=42)) # k=3
 final_model.fit(X)
 ```
-Results Interpretation and Visualization:
+### 7. Results Interpretation and Visualization:
 
 Assigning Cluster Labels: Obtained cluster labels for each customer.
 Cluster Profiling: Calculated the mean of each feature for every cluster to understand the characteristics of each customer segment. This step directly addresses "What defines each segment?".
