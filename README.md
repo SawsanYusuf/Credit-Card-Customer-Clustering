@@ -80,9 +80,10 @@ being the selected features
 ### 6. K-Means Clustering Model Building:
 
 * Determining Optimal Number of Clusters (`k=3`): While methods like the Elbow Method and Silhouette Score are often used to determine optimal k (as visualized below to show thoroughness), the final choice of k=3 was specifically made to align with the three distinct credit card product tiers (Platinum, Gold, Silver) available for recommendation.
-![]()
-![]()
-(Keep Elbow and Silhouette plots here if available, as they demonstrate thorough analysis even if the final K was fixed by business context.)
+![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/elbow.png)
+
+![](https://github.com/SawsanYusuf/Credit-Card-Customer-Clustering/blob/main/Images/silhouette%20.png)
+
 * Final Model Training: A K-Means model was trained with n_clusters=3.
 
 ```
@@ -94,16 +95,19 @@ final_model.fit(X)
 ```
 ### 7. Results Interpretation and Visualization:
 
-Assigning Cluster Labels: Obtained cluster labels for each customer.
-Cluster Profiling: Calculated the mean of each feature for every cluster to understand the characteristics of each customer segment. This step directly addresses "What defines each segment?".
-Python
-
+* Assigning Cluster Labels: Obtained cluster labels for each customer.
+* Cluster Profiling: Calculated the mean of each feature for every cluster to understand the characteristics of each customer segment. This step directly addresses "What defines each segment?".
+```
 X_summary = X.groupby(final_model.named_steps['kmeans'].labels_).mean().astype(int)
-Visualizing Cluster Profiles: Created a side-by-side bar chart to visually compare the mean values of key financial metrics across different clusters, enabling clear interpretation of each segment.
-PCA for Visualization (Optional but Implemented):
-Applied Principal Component Analysis (PCA) to reduce the dimensionality of the data to 2 components (PC1, PC2) for 2D visualization.
-Created a scatter plot of PC1 vs PC2, colored by cluster labels, to visualize the separation of the identified customer segments in a lower-dimensional space.
-Outcomes & Business Impact
+```
+* Visualizing Cluster Profiles: Created a side-by-side bar chart to visually compare the mean values of key financial metrics across different clusters, enabling clear interpretation of each segment.
+![]()
+* PCA for Visualization (Optional but Implemented):
+    * Applied Principal Component Analysis (PCA) to reduce the dimensionality of the data to 2 components (PC1, PC2) for 2D visualization.
+    * Created a scatter plot of PC1 vs PC2, colored by cluster labels, to visualize the separation of the identified customer segments in a lower-dimensional space.
+ ![]()
+      
+## Outcomes & Business Impact
 This project successfully developed a customer segmentation model, clearly answering:
 
 What are the distinct segments of credit card users? The K-Means model identified 3 distinct customer clusters, directly aligning with the existing credit card product tiers (Platinum, Gold, Silver).
