@@ -20,53 +20,46 @@ The dataset contains transactional and behavioral data for 8950 distinct credit 
 * `BALANCE_FREQUENCY`: How frequently the balance is updated
 * `PURCHASES`: Amount of purchases made
 * `ONEOFF_PURCHASES`: Maximum purchase amount done in one-off transaction
-
-`INSTALLMENTS_PURCHASES`: Amount of purchase done in installment
-
-`CASH_ADVANCE`: Cash in advance given by the bank
-
-`PURCHASES_FREQUENCY`: How frequently the purchases are being made
-
-`ONEOFF_PURCHASES_FREQUENCY`: How frequently one-off purchases are being made
-
-`PURCHASES_INSTALLMENTS_FREQUENCY`: How frequently purchases in installments are being made
-
-`CASH_ADVANCE_FREQUENCY`: How frequently cash in advance is being paid
-
-`CASH_ADVANCE_TRX`: Number of cash advance transactions
-
-`PURCHASES_TRX`: Number of purchase transactions
-
-`CREDIT_LIMIT`: Credit limit of the customer
-
-`PAYMENTS`: Amount of payments made
-
-`MINIMUM_PAYMENTS`: Minimum amount of payments made by customer
-
-`PRC_FULL_PAYMENT`: Percentage of full payment paid
-
-`TENURE`: Tenure of credit card service
+* `INSTALLMENTS_PURCHASES`: Amount of purchase done in installment
+* `CASH_ADVANCE`: Cash in advance given by the bank
+* `PURCHASES_FREQUENCY`: How frequently the purchases are being made
+* `ONEOFF_PURCHASES_FREQUENCY`: How frequently one-off purchases are being made
+* `PURCHASES_INSTALLMENTS_FREQUENCY`: How frequently purchases in installments are being made
+* `CASH_ADVANCE_FREQUENCY`: How frequently cash in advance is being paid
+* `CASH_ADVANCE_TRX`: Number of cash advance transactions
+* `PURCHASES_TRX`: Number of purchase transactions
+* `CREDIT_LIMIT`: Credit limit of the customer
+* `PAYMENTS`: Amount of payments made
+* `MINIMUM_PAYMENTS`: Minimum amount of payments made by customer
+* `PRC_FULL_PAYMENT`: Percentage of full payment paid
+* `TENURE`: Tenure of credit card service
 
 # Methodology & Steps
 The project followed a standard data science pipeline:
 
-Data Loading and Initial Exploration:
+## Data Loading and Initial Exploration:
 
-Loaded the dataset (Credit Card Customer Clustering.csv) into a Pandas DataFrame.
-Performed initial inspection using df.head() and df.info() to understand data types and non-null counts.
-Data Preprocessing:
+Loaded the dataset into a Pandas DataFrame.
 
-Handling Missing Values: Identified and imputed missing values in MINIMUM_PAYMENTS and CREDIT_LIMIT columns by filling them with the mean of their respective columns.
-Python
+Performed initial inspection using `df.head()` and `df.info()` to understand data types and non-null counts.
 
+## Data Preprocessing:
+
+* Handling Missing Values: Identified and imputed missing values in MINIMUM_PAYMENTS and CREDIT_LIMIT columns by filling them with the mean of their respective columns.
+* 
+```
 df.loc[(df['MINIMUM_PAYMENTS'].isnull()==True),'MINIMUM_PAYMENTS']=df['MINIMUM_PAYMENTS'].mean()
 df.loc[(df['CREDIT_LIMIT'].isnull()==True),'CREDIT_LIMIT']=df['CREDIT_LIMIT'].mean()
-Handling Duplicates: Checked for and confirmed the absence of duplicate rows.
-Feature Engineering/Selection (Implicit): The CUST_ID column was dropped as it's a unique identifier and not relevant for clustering.
-Python
+```
 
+* Handling Duplicates: Checked for and confirmed the absence of duplicate rows.
+* Feature Engineering/Selection (Implicit): The CUST_ID column was dropped as it's a unique identifier and not relevant for clustering.
+
+```
 df.drop(columns='CUST_ID', inplace=True)
-Exploratory Data Analysis (EDA) & Feature Importance:
+```
+
+## Exploratory Data Analysis (EDA) & Feature Importance:
 
 Descriptive Statistics: Generated descriptive statistics for numerical features (df.describe()).
 Variance Analysis: Calculated and visualized the 10 features with the highest variance to identify potentially important variables for clustering.
